@@ -1,13 +1,20 @@
 window.onload = () => {
+    const form = document.querySelector('form');
+    form.addEventListener('submit', add);
     
-    myLibrary = []
+    myLibrary = [
+        new Book('War and Peace', 'Leo Tolstoy', 300, 'Completed'),
+        new Book('The Odyssey', 'Homer', 500, 'In Progress'),
+        new Book('The Hobbit', 'J.R.R Tolkien', 250, 'Completed')
+    ]
 
     function Book(title, author, pages, status) {
-        this.title = title;
-        this.author = author;
-        this.pages = pages;
-        this.status = status; 
-    }
+            this.title = title;
+            this.author = author;
+            this.pages = pages;
+            this.status = status;
+        }
+    
 
     function load() {
         const records = document.querySelector('.records');
@@ -25,39 +32,23 @@ window.onload = () => {
         })
     }
 
-    function insert() {
+    function add(event) {
+        event.preventDefault();
+        let book = event.target
         const records = document.querySelector('.records');
         const row = document.createElement('tr');
         const title = row.appendChild(document.createElement('td'));
         const author = row.appendChild(document.createElement('td'));
         const pages = row.appendChild(document.createElement('td'));
         const status = row.appendChild(document.createElement('td'));
-        let book = myLibrary[myLibrary.length-1]
-        title.textContent = book.title
-        author.textContent = book.author
-        pages.textContent = book.pages
-        status.textContent = book.status
+        title.textContent = book.title.value;
+        author.textContent = book.author.value;
+        pages.textContent = book.pages.value;
+        status.textContent = book.status.value;
         records.appendChild(row);
+        form.reload();
+        
     }
 
-    function add(event) {
-        let book = event.target
-        newBook = new Book(book.title.value, book.author.value, book.pages.value, book.status.value);
-        myLibrary.push(newBook)
-        insert()
-        const form = document.querySelector('form');
-        form.reset()
-    }
-
-    book1 = new Book('War and Peace', 'Leo Tolstoy', 300, 'Completed')
-    book2 = new Book('The Odyssey', 'Homer', 500, 'In Progress')
-    book3 = new Book('The Hobbit', 'J.R.R Tolkien', 250, 'Completed')
-    myLibrary.push(book1)
-    myLibrary.push(book2)
-    myLibrary.push(book3)
-    load();
-    const form = document.querySelector('form');
-    form.addEventListener('submit', add);
-
-
+    load()
 }
