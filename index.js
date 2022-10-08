@@ -33,7 +33,6 @@ window.onload = () => {
     }
 
     function add(event) {
-        event.stopPropagation();
         let book = event.target
         const records = document.querySelector('.records');
         const row = document.createElement('tr');
@@ -46,6 +45,7 @@ window.onload = () => {
         pages.textContent = book.pages.value;
         status.textContent = book.status.value;
         form.reset();
+        event.preventDefault();
         records.appendChild(row);        
     }
 
