@@ -1,6 +1,6 @@
 window.onload = () => {
     const form = document.querySelector('form');
-    form.addEventListener('submit', add);
+    form.addEventListener('submit', add, false);
     
     myLibrary = [
         new Book('War and Peace', 'Leo Tolstoy', 300, 'Completed'),
@@ -33,7 +33,7 @@ window.onload = () => {
     }
 
     function add(event) {
-        event.preventDefault();
+        event.stopPropagation();
         let book = event.target
         const records = document.querySelector('.records');
         const row = document.createElement('tr');
@@ -45,9 +45,8 @@ window.onload = () => {
         author.textContent = book.author.value;
         pages.textContent = book.pages.value;
         status.textContent = book.status.value;
-        records.appendChild(row);
-        form.reload();
-        
+        form.reset();
+        records.appendChild(row);        
     }
 
     load()
