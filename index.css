@@ -1,0 +1,85 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow: hidden;
+}
+
+body {
+    /* display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 15% 85%; */
+    width: 98%;
+    height: 98%;
+}
+
+.header {
+    padding-left: 25px;
+    background-color: #e6e9e9; 
+    height: 10%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.content {
+    margin-bottom: 20px;
+    background-color: #def2f1;
+    height: 90%;
+    display: grid;
+    grid-template-columns: 270px 700px;
+    column-gap: 5px;
+}
+
+.control{
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.table-view {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-left: 25px;
+    border-left: 2px dotted lightgrey;
+}
+
+label, input {
+    display: block;
+    padding: 2px;
+    margin-bottom: 5px;
+    width: 200px;
+    height: 20px;
+
+}
+
+#add-button {
+    margin-top: 20px;
+    height: 35px;
+    width: 210px;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+    border: 1px solid green;
+}
+
+.drop-down {
+    height: 30px;
+    width: 210px;
+    border-radius: 5px;
+}
+
+.records {
+    display: block;
+}
+
+th, td {
+    width: 150px;
+    border: 1px solid lightslategray;
+    text-align: left;
+    padding: 5px;
+}
+
+th {
+    background-color: rgb(1, 1, 76);
+    color: white
+}
